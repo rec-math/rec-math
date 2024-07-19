@@ -1,0 +1,24 @@
+{
+  "name": "@rec-math/math",
+  "version": "2.0.0-dev",
+  "description": "Mathematics for the browser: math module",
+  "type": "module",
+  "browser": "index.min.js",
+  "keywords": [],
+  "author": "PBUK https://github.com/pb-uk",
+  "license": "MIT",
+  "homepage": "https://github.com/rec-math/rec-math",
+  "files": [
+    "index.*",
+    "types"
+  ],
+  "scripts": {
+    "build:rollup": "cd .. && rollup -c math/rollup.config.js",
+    "test": "jest -c ../jest.config.js math/src math/test --verbose",
+    "test:unit": "jest -c ../jest.config.js math/src --verbose",
+    "build": "npm run build:clean && tsc -p tsconfig.types.json && npm run build:rollup",
+    "build:clean": "rimraf types index.* -g",
+    "check": "prettier . --check --ignore-path=../.prettierignore && eslint .",
+    "fix": "prettier . --write --ignore-path=../.prettierignore && eslint . --fix"
+  }
+}

@@ -1,0 +1,10 @@
+# .prettierignore
+
+package-lock.json
+
+# Distribution files
+/integrate/index.*
+/integrate/types
+
+/math/index.*
+/math/types

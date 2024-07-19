@@ -1,0 +1,48 @@
+# .github/workflows/run-tests.yaml
+
+name: Run tests
+
+on:
+  push:
+    branches: [main, develop, start-v2]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        node_version:
+          - 18 # Until EOL 2025-04-30
+          - 20 # Until EOL 2026-04-30
+          - 22 # Until EOL 2027-04-30
+        architecture:
+          # - x64
+
+        include:
+          # Also test on MacOS for big-endian architecture.
+          - os: macos-latest
+            node_version: 20 # Until Maint 2024-10-22
+            # architecture: x86
+
+          # Also test on Windows for x86 architecture.
+          - os: windows-latest
+            node_version: 20 # Until Maint 2024-10-22
+            architecture: x86
+
+    name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node_version }}
+          architecture: ${{ matrix.architecture }}
+          cache: 'npm'
+          # We need to include package.json for each module.
+          cache-dependency-path: '**/package.json'
+      - run: npm i # not ci as we are not committing package-lock.json here.
+      - run: npm ci:test

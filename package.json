@@ -1,0 +1,32 @@
+{
+  "name": "@rec-math/rec-math",
+  "private": true,
+  "version": "2.x",
+  "description": "Mathematics for the browser",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "ci:test": "npm run test && npm run check",
+    "check": "prettier . --check --ignore-path=.prettierignore && eslint .",
+    "fix": "prettier . --write --ignore-path=.prettierignore && eslint . --fix",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
+    "globals": "^15.8.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.18.1",
+    "ts-jest": "^29.2.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
+  }
+}

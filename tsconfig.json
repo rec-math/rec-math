@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "ES2015",
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true
+  }
+}

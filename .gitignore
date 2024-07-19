@@ -1,0 +1,12 @@
+# .gitignore
+
+node_modules
+
+package-lock.json
+
+# Distribution files
+/integrate/index.*
+/integrate/types
+
+/math/index.*
+/math/types
