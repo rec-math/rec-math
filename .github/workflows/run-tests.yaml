@@ -28,7 +28,7 @@ jobs:
           # Also test on MacOS for big-endian architecture.
           - os: macos-latest
             node_version: 20 # Until Maint 2024-10-22
-            # architecture: x86
+            architecture: x64
 
           # Also test on Windows for x86 architecture.
           - os: windows-latest
