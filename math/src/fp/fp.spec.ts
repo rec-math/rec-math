@@ -1,8 +1,7 @@
 import { IS_INFINITE, IS_NORMAL, IS_SUBNORMAL } from '../constants';
 
 import { pack, unpack, nextAfter, classify, isBigEndian } from '.';
-
-const bigEndianPlatforms = ['darwin'];
+import { endianness } from 'node:os';
 
 // The smallest positive subnormal.
 const DENORM_MIN = Number.MIN_VALUE;
@@ -13,11 +12,11 @@ describe('Floating point functions', () => {
     it('should detect current endianness', () => {
       const isBig = isBigEndian();
       console.log(
-        `Running on ${process.platform}`,
+        `Running on ${process.platform} ${process.arch}`,
         'detected as',
         isBig ? 'big-endian' : 'little-endian',
       );
-      const expected = bigEndianPlatforms.includes(process.platform);
+      const expected = endianness() === 'BE';
       expect(isBig).toBe(expected);
     });
   });
