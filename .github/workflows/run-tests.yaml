@@ -19,7 +19,8 @@ jobs:
           # Cannot support Node.js 18 due to current dev dependencies.
           # - 18 # Until EOL 2025-04-30
           - 20 # Until EOL 2026-04-30
-          - 22 # Until EOL 2027-04-30
+          # Cannot support Node.js 22 yet due to ?eslint or jest
+          # - 22 # Until EOL 2027-04-30
         # architecture:
         #   - x64
 
