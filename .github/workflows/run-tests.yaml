@@ -19,8 +19,8 @@ jobs:
           - 18 # Until EOL 2025-04-30
           - 20 # Until EOL 2026-04-30
           - 22 # Until EOL 2027-04-30
-        architecture:
-          # - x64
+        # architecture:
+        #   - x64
 
         include:
           # Also test on MacOS for big-endian architecture.
